@@ -5,22 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 <title>For Aashiritha — A Special Message</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
 
 :root{
   --bg1:#fff5f7;
   --bg2:#ffe1e8;
   --bg3:#ffd4e1;
   --accent:#ff69a3;
-  --accent-light:#ff8bb8;
   --accent-dark:#e05589;
   --highlight:#ffb3d1;
   --text:#a0334a;
-  --text-light:#b8466b;
-  --card-bg:rgba(255,245,250,0.95);
-  --shadow:rgba(255,105,163,0.25);
-  --border:rgba(255,180,210,0.4);
 }
+
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
   font-family:"Poppins",sans-serif;
@@ -32,29 +28,29 @@ body{
     radial-gradient(circle at 20% 30%, var(--bg1) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, var(--bg2) 0%, transparent 50%),
     linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
-  color:var(--text);
   flex-direction:column;
-  padding:12px;
   overflow:hidden;
+  padding:12px;
+  color:var(--text);
 }
 
-.bg-element{position:absolute;border-radius:50%;background:linear-gradient(45deg,var(--highlight),var(--accent-light));opacity:.12;animation:float 6s ease-in-out infinite;pointer-events:none;}
+.bg-element{position:absolute;border-radius:50%;background:linear-gradient(45deg,var(--highlight),var(--accent));opacity:.1;animation:float 6s ease-in-out infinite;pointer-events:none;}
 .bg-element:nth-child(1){width:100px;height:100px;top:8%;left:6%;}
 .bg-element:nth-child(2){width:70px;height:70px;top:60%;right:10%;animation-delay:-2s;}
 .bg-element:nth-child(3){width:90px;height:90px;bottom:18%;left:25%;animation-delay:-4s;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
 
-/* Confetti canvas */
+/* Confetti */
 #confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 
 .card{
   width:min(400px,96%);
   padding:24px 20px;
   border-radius:24px;
-  background:var(--card-bg);
-  box-shadow:0 8px 32px var(--shadow),inset 0 1px 2px rgba(255,255,255,0.8);
+  background:rgba(255,245,250,0.95);
+  box-shadow:0 8px 32px rgba(255,105,163,0.25),inset 0 1px 2px rgba(255,255,255,0.8);
   backdrop-filter:blur(12px);
-  border:1px solid var(--border);
+  border:1px solid rgba(255,180,210,0.4);
   text-align:center;
   position:relative;
   z-index:1;
@@ -62,31 +58,47 @@ body{
 }
 @keyframes cardEntrance{0%{transform:translateY(30px) scale(0.95);opacity:0;}100%{transform:none;opacity:1;}}
 
-h1{font-size:clamp(20px,5vw,24px);font-weight:700;color:var(--accent);text-shadow:0 0 12px var(--highlight);margin-bottom:20px;animation:titleGlow 2s ease-in-out infinite alternate;}
-@keyframes titleGlow{from{text-shadow:0 0 12px var(--highlight);}to{text-shadow:0 0 20px var(--accent-dark);}}
+h1{font-size:clamp(20px,5vw,24px);font-weight:700;color:var(--accent);text-shadow:0 0 12px var(--highlight);margin-bottom:20px;}
 
 .message{font-size:16px;line-height:1.6;text-align:left;max-height:45vh;overflow-y:auto;padding:14px;border-radius:14px;background:rgba(255,255,255,.5);margin-bottom:18px;}
 .line{margin:10px 0;}
-.glow{color:var(--accent);font-weight:700;text-shadow:0 0 10px var(--accent-light);}
+.glow{color:var(--accent);font-weight:700;text-shadow:0 0 10px var(--highlight);}
 .text.flowing{background:linear-gradient(90deg,var(--text),var(--accent),var(--text));background-size:200% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:textFlow 3s linear infinite;}
 @keyframes textFlow{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .caret{display:inline-block;width:2px;height:1.2em;background:var(--accent);margin-left:3px;animation:blink 1s steps(2,start) infinite;}
 @keyframes blink{50%{opacity:0;}}
 
-.choice-container{display:none;flex-direction:column;gap:12px;margin:14px 0;}
-.choice-container.show{display:flex;}
-.choice-btn{padding:12px;border-radius:18px;border:2px solid var(--accent-light);background:white;color:var(--text);cursor:pointer;transition:.3s;}
-.choice-btn:hover{background:var(--accent);color:white;}
-
-.ending{margin-top:14px;padding:16px;border-radius:18px;font-weight:600;font-size:17px;animation:endIn .6s ease;}
-.ending.romantic{background:rgba(255,180,210,.3);color:var(--accent-dark);}
-.ending.friendship{background:rgba(180,220,255,.3);color:#4a90e2;}
-.ending.mysterious{background:rgba(220,180,255,.3);color:#8e44ad;}
-@keyframes endIn{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:scale(1);}}
-
 .controls{display:flex;gap:10px;justify-content:center;}
 .btn{padding:10px 16px;border:2px solid var(--accent);border-radius:16px;background:white;color:var(--accent);cursor:pointer;font-weight:600;transition:.3s;}
 .btn:hover{background:var(--accent);color:white;}
+
+/* === 3D Ending Typography with Zoom === */
+.ending3d{
+  font-size:clamp(20px,6vw,28px);
+  font-weight:700;
+  color:#fff;
+  padding:20px;
+  border-radius:18px;
+  margin-top:20px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+  text-transform:uppercase;
+  text-shadow:
+    1px 1px 0px #c92f64,
+    2px 2px 0px #b02a59,
+    3px 3px 0px #902349,
+    4px 4px 0px #701b38,
+    5px 5px 15px rgba(0,0,0,0.3),
+    0 0 20px var(--highlight);
+  animation:pop3d 1s ease-out, zoomPulse 3s ease-in-out infinite;
+}
+@keyframes pop3d{
+  0%{transform:scale(0.5) rotateX(90deg) rotateY(-90deg);opacity:0;}
+  100%{transform:scale(1) rotateX(0) rotateY(0);opacity:1;}
+}
+@keyframes zoomPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+}
 </style>
 </head>
 <body>
@@ -99,13 +111,7 @@ h1{font-size:clamp(20px,5vw,24px);font-weight:700;color:var(--accent);text-shado
 <div class="card" id="mainCard">
   <h1 id="title">💌 A Special Message for Aashiritha</h1>
   <div class="message" id="message"></div>
-  
-  <div class="choice-container" id="choiceContainer">
-    <button class="choice-btn" data-ending="romantic">💖 I like you!</button>
-    <button class="choice-btn" data-ending="friendship">🌟 You're my bestie!</button>
-    <button class="choice-btn" data-ending="mysterious">✨ Something special...</button>
-  </div>
-  
+
   <div class="controls">
     <button class="btn" id="nextBtn">Next 💕</button>
     <button class="btn" id="resetBtn">↺ Reset</button>
@@ -126,16 +132,11 @@ const lines = [
   "A – Absolutely awesome, Aashiritha! 💖"
 ];
 
-const endings = {
-  romantic: "💖 Ninnu chala ishtapadutunnanu! Naa hrudayam lo nuvvu super special. Will you be mine? ✨",
-  friendship: "🌟 You're the best, Aashiritha! Let's always support each other & make amazing memories together 💫",
-  mysterious: "✨ So many things I want to tell you... maybe someday you'll know how special you are to me 🌙"
-};
+const endingText = "💖 Ninnu chala ishtapadutunnanu! Naa hrudayam lo nuvvu super special. Will you be mine? ✨";
 
 const msgBox = document.getElementById("message");
 const nextBtn = document.getElementById("nextBtn");
 const resetBtn = document.getElementById("resetBtn");
-const choiceContainer = document.getElementById("choiceContainer");
 let currentLine=0, isTyping=false;
 
 function appendLineWithTypewriter(line, cb){
@@ -154,12 +155,12 @@ function appendLineWithTypewriter(line, cb){
   tick();
 }
 
-function showChoices(){choiceContainer.classList.add("show");nextBtn.style.display="none";}
-
-function showEnding(type){
+function showEnding(){
+  msgBox.innerHTML="";
   const e=document.createElement("div");
-  e.className=`ending ${type}`; e.textContent=endings[type];
-  msgBox.innerHTML=""; msgBox.appendChild(e);
+  e.className="ending3d";
+  e.textContent=endingText;
+  msgBox.appendChild(e);
   launchConfetti();
 }
 
@@ -168,16 +169,14 @@ nextBtn.addEventListener("click",()=>{
   if(currentLine<lines.length){
     appendLineWithTypewriter(lines[currentLine]);
     currentLine++;
-  }else{showChoices();}
-});
-
-choiceContainer.addEventListener("click",e=>{
-  if(e.target.classList.contains("choice-btn")) showEnding(e.target.dataset.ending);
+  }else{
+    showEnding();
+    nextBtn.style.display="none";
+  }
 });
 
 resetBtn.addEventListener("click",()=>{
   msgBox.innerHTML="";currentLine=0;
-  choiceContainer.classList.remove("show");
   nextBtn.style.display="inline-block";
 });
 
